@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SpotifyService } from '../../services/spotify.service';
 
 @Component({
   selector: 'app-artist',
@@ -8,10 +9,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtistComponent{
 
-  constructor(private router: ActivatedRoute) {
+  loading: boolean;
+  artist: any;
+
+  constructor(private router: ActivatedRoute, private spotiService: SpotifyService) {
+    this.loading = true;
     this.router.params.subscribe( params => {
-      console.log('Got params: ' + params['id']);
+      this.getArtistInfo(params['id']);
+      console.log(this.artist);
     });
+  }
+
+  getArtistInfo(id: string) {
+    this.artist = this.spotiService
+                      .getArtistiById(id)
+                      .subscribe( (data: any) => {this.artist = data; this.loading = false;
+                      });
   }
 
 }

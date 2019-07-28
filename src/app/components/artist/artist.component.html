@@ -1,3 +1,19 @@
-<p>
-  artist works!
-</p>
+<app-loading *ngIf="loading" class="m-5"></app-loading>
+<div class="row fadeIn animated" *ngIf="!loading">
+  <div class="col-2">
+    <img [src]="artist.images | noimage" alt="artist.name" class="img-thumbnail img-circle">
+  </div>
+  <div class="col">
+    <h3>{{ artist.name }}</h3>
+    <p>
+      <a [href]="artist.external_urls.spotify" target="_blank">
+        Go to artist's page in Spotify
+      </a>
+    </p>
+  </div>
+  <div class="col-4 text-right">
+    <button [routerLink]="['/search']" class="btn btn-outline-danger" >
+      Go search
+    </button>
+  </div>
+</div>
