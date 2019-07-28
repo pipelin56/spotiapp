@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/share/navbar/navbar.component';
 // Pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { ArtistCardComponent } from './components/artist-card/artist-card.component';
+import { LoadingComponent } from './components/share/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ArtistCardComponent } from './components/artist-card/artist-card.compon
     ArtistComponent,
     NavbarComponent,
     NoimagePipe,
-    ArtistCardComponent
+    ArtistCardComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
