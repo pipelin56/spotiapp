@@ -10,12 +10,21 @@ import { SpotifyService } from '../../services/spotify.service';
 export class SearchComponent  {
 
   searchedArtists: any[] = [];
+  loading: boolean;
   constructor(private spotiService: SpotifyService) {  }
 
   searchArtists(searchValue: string) {
-    console.log(searchValue);
-    this.spotiService.getSearchedArtists(searchValue)
-    .subscribe( (data: any) => this.searchedArtists = data );
-  }
+    if (searchValue.length === 0) {
+       this.loading = false;
+       this.searchedArtists = [];
+    } else {
+        this.loading = true;
+        this.spotiService.getSearchedArtists(searchValue)
+        .subscribe( (data: any) => {
+            this.searchedArtists = data;
+            this.loading = false;
+        } );
+      }
+    }
 
 }
