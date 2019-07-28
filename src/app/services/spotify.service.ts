@@ -20,13 +20,13 @@ export class SpotifyService {
               .pipe( map( (data: any) => data.artists.items));
   }
 
-  getArtistiById( artistId: string ){
+  getArtistiById( artistId: string ) {
     return this.doCallApiSpotifyByUrl(`artists/${artistId}`);
   }
 
   private doCallApiSpotifyByUrl( query: string) {
     const url = `https://api.spotify.com/v1/${ query }`;
-    const token = 'BQAIDr93BBfUneeuqz_u6heYaFva5ia6MIiXteucyczk_oRVVAQiccjWZjg6Pp93sBM3__H8Ci4mcooJUqE';
+    const token = 'BQBylM0bwICuTqOVpHBCO9F4oFYPtgunQ_-1ds8mRSQpRuCJy6OzLBExyvjSeLxUp7UTTmMEcWbo6C11ejU';
     const headers = new HttpHeaders({
        Authorization: `Bearer ${token}`
      });
