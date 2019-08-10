@@ -21,12 +21,17 @@ export class SpotifyService {
   }
 
   getArtistiById( artistId: string ) {
-    return this.doCallApiSpotifyByUrl(`artists/${artistId}`);
+    return this.doCallApiSpotifyByUrl(`artists/${ artistId }`);
+  }
+
+  getTopTracksArtistiById( artistId: string ) {
+    return this.doCallApiSpotifyByUrl(`artists/${ artistId }/top-tracks?country=us`)
+               .pipe( map( data => data['tracks']));
   }
 
   private doCallApiSpotifyByUrl( query: string) {
     const url = `https://api.spotify.com/v1/${ query }`;
-    const token = 'BQACPuvd_bRRtuCQl1F18GNU9KsHEzDtUl1XTLCEvzoBeE9ksoe7Li9UtoaFk8hzDuAtnsJsv6F5t3Musak';
+    const token = 'BQDshmawmeCgX3hy6jNE1kUSZE36N7Ku-CS_rvdCEiOKHnBGY2XoGnvwNXuSpxti3V6hI_NUIw9vBGJI1PU';
     const headers = new HttpHeaders({
        Authorization: `Bearer ${token}`
      });
