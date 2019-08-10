@@ -3,7 +3,7 @@ import { DomSanitizer  } from '@angular/platform-browser';
 
 
 @Pipe({
-  name: 'securedome'
+  name: 'securedom'
 })
 export class SecureDomPipe implements PipeTransform {
 
