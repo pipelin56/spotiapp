@@ -3,9 +3,9 @@ import { DomSanitizer  } from '@angular/platform-browser';
 
 
 @Pipe({
-  name: 'domseguro'
+  name: 'securedome'
 })
-export class DomseguroPipe implements PipeTransform {
+export class SecureDomPipe implements PipeTransform {
 
   constructor( private domSanitizer:DomSanitizer ){ }
 
